@@ -1,4 +1,34 @@
 <% name = current_user.present? ? current_user.email : 'Stranger' %>
 
 <h1>Welcome, <%= name %> </h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<p id="notice"><%= notice %></p>
+
+<% if user_signed_in? %>
+<h1>Campaigns</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <% current_user.campaigns.each do |campaign| %>
+        <tr>
+          <td><%= campaign.name %></td>
+          <td><%= campaign.description %></td>
+          <td><%= link_to 'Show', campaign %></td>
+          <td><%= link_to 'Edit', edit_campaign_path(campaign) %></td>
+          <td><%= link_to 'Destroy', campaign, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Campaign', new_campaign_path %>
+<% end %>
