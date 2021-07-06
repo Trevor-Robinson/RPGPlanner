@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @npc.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @npc.description %>
+</p>
+
+<p>
+  <strong>Want:</strong>
+  <%= @npc.want %>
+</p>
+
+<p>
+  <strong>Need:</strong>
+  <%= @npc.need %>
+</p>
+
+<p>
+  <strong>Unique feature:</strong>
+  <%= @npc.unique_feature %>
+</p>
+
+<p>
+  <strong>Trait 1:</strong>
+  <%= @npc.trait_1 %>
+</p>
+
+<p>
+  <strong>Trait 2:</strong>
+  <%= @npc.trait_2 %>
+</p>
+
+<p>
+  <strong>Trait 3:</strong>
+  <%= @npc.trait_3 %>
+</p>
+
+<%= link_to 'Edit', edit_campaign_npc_path(@campaign, @npc) %> |
+<%= link_to 'Destroy', [@campaign, @npc] , method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to 'Back', campaign_npcs_path(@campaign) %>

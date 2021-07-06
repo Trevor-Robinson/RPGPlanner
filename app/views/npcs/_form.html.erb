@@ -1,0 +1,57 @@
+<%= form_with(model:[@campaign, npc], local: true) do |form| %>
+  <% if npc.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(npc.errors.count, "error") %> prohibited this npc from being saved:</h2>
+
+      <ul>
+      <% npc.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :want %>
+    <%= form.text_field :want %>
+  </div>
+
+  <div class="field">
+    <%= form.label :need %>
+    <%= form.text_field :need %>
+  </div>
+
+  <div class="field">
+    <%= form.label :unique_feature %>
+    <%= form.text_field :unique_feature %>
+  </div>
+
+  <div class="field">
+    <%= form.label :trait_1 %>
+    <%= form.text_field :trait_1 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :trait_2 %>
+    <%= form.text_field :trait_2 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :trait_3 %>
+    <%= form.text_field :trait_3 %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
