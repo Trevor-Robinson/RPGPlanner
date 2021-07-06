@@ -10,5 +10,7 @@
   <%= @campaign.description %>
 </p>
 
-<%= link_to 'Edit', edit_campaign_path(@campaign) %> |
-<%= link_to 'Back', campaigns_path %>
+
+
+<%= link_to 'View Campaign NPCs', campaign_npcs_path(@campaign) %><br><br><br>
+<%= link_to 'Edit Campaign', edit_campaign_path(@campaign) %>

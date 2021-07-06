@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>NPCs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Want</th>
+      <th>Need</th>
+      <th>Unique feature</th>
+      <th>Trait 1</th>
+      <th>Trait 2</th>
+      <th>Trait 3</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @npcs.each do |npc| %>
+      <tr>
+        <td><%= link_to npc.name, campaign_npc_path(@campaign, npc) %></td>
+        <td><%= npc.description %></td>
+        <td><%= npc.want %></td>
+        <td><%= npc.need %></td>
+        <td><%= npc.unique_feature %></td>
+        <td><%= npc.trait_1 %></td>
+        <td><%= npc.trait_2 %></td>
+        <td><%= npc.trait_3 %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Npc', new_campaign_npc_path(@campaign) %>

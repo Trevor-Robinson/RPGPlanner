@@ -1,8 +1,7 @@
 class CampaignsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_campaign, only: %i[ show edit update destroy ]
-  before_action :set_user, only: %i[ create, update]
-
+  before_action :set_user, only: %i[update]
   # GET /campaigns or /campaigns.json
   def index
     @campaigns = Campaign.all
@@ -23,15 +22,14 @@ class CampaignsController < ApplicationController
 
   # POST /campaigns or /campaigns.json
   def create
+    set_user
     @campaign = Campaign.new(campaign_params)
 
     respond_to do |format|
       if @campaign.save
         format.html { redirect_to @campaign, notice: "Campaign was successfully created." }
-        format.json { render :show, status: :created, location: @campaign }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @campaign.errors, status: :unprocessable_entity }
       end
     end
   end
