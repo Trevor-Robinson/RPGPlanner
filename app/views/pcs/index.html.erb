@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h1>PCs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Background</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pcs.each do |pc| %>
+      <tr>
+        <td><%= link_to pc.name, campaign_pc_path(@campaign, pc) %></td>
+        <td><%= pc.background %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New PC', new_campaign_pc_path(@campaign) %><br><br>
+<%= link_to 'Back to Campaign', campaign_path(@campaign) %>
