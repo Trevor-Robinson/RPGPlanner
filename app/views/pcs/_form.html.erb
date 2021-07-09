@@ -1,0 +1,27 @@
+<%= form_with(model: [@campaign, pc], local: true) do |form| %>
+  <% if pc.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pc.errors.count, "error") %> prohibited this pc from being saved:</h2>
+
+      <ul>
+      <% pc.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :background %>
+    <%= form.text_area :background %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

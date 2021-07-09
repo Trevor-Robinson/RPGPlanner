@@ -26,7 +26,7 @@ class NpcsController < ApplicationController
 
     respond_to do |format|
       if @npc.save
-        format.html { redirect_to campaign_npcs_path(@campaign), notice: "Npc was successfully created." }
+        format.html { redirect_to campaign_npcs_path(@campaign), notice: "NPC was successfully created." }
         format.json { render :show, status: :created, location: @npc }
       else
         format.html { render :new, status: :unprocessable_entity }

@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @pc.name %>
+</p>
+
+<p>
+  <strong>Background:</strong>
+  <%= @pc.background %>
+</p>
+
+<%= link_to 'Edit', edit_campaign_pc_path(@campaign, @pc) %> |
+<%= link_to 'Destroy', [@campaign, @pc] , method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to 'Back', campaign_pcs_path(@campaign) %>
