@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @job.job_type %>
+</p>
+
+<p>
+  <strong>Details:</strong>
+  <%= @job.details %>
+</p>
+
+<%= link_to 'Edit', edit_campaign_job_path(@campaign, @job) %> |
+<%= link_to 'Destroy', [@campaign, @job] , method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to 'Back', campaign_jobs_path(@campaign) %>
