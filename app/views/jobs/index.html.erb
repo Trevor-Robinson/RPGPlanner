@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Jobs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @jobs.each do |job| %>
+      <tr>
+        <td><%= link_to job.job_type, campaign_job_path(@campaign, job) %></td>
+        <td><%= job.details %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Job', new_campaign_job_path(@campaign) %><br><br>
+<%= link_to 'Back to Campaign', campaign_path(@campaign) %>
