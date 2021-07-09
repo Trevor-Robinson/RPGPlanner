@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Systems</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @systems.each do |system| %>
+      <tr>
+        <td><%= system.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New System', new_campaign_system_path(@campaign) %><br><br>
+<%= link_to 'Back to Campaign', campaign_path(@campaign) %>
