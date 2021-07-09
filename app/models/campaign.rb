@@ -3,4 +3,5 @@ class Campaign < ApplicationRecord
   has_many :npcs
   has_many :pcs
   has_many :jobs
+  has_many :systems
 end
