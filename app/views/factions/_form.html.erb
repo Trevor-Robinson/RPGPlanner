@@ -1,0 +1,57 @@
+<%= form_with(model: [@campaign, faction], local: true) do |form| %>
+  <% if faction.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(faction.errors.count, "error") %> prohibited this faction from being saved:</h2>
+
+      <ul>
+      <% faction.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :faction_type %>
+    <%= form.text_field :faction_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tier %>
+    <%= form.number_field :tier %>
+  </div>
+
+  <div class="field">
+    <%= form.label :goal %>
+    <%= form.text_area :goal %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :notable_assets %>
+    <%= form.text_area :notable_assets %>
+  </div>
+
+  <div class="field">
+    <%= form.label :qirks %>
+    <%= form.text_area :qirks %>
+  </div>
+
+  <div class="field">
+    <%= form.label :situation %>
+    <%= form.text_area :situation %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

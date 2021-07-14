@@ -1,0 +1,52 @@
+<%= form_with(model: [@campaign, @system, notable_place], local: true) do |form| %>
+  <% if notable_place.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(notable_place.errors.count, "error") %> prohibited this notable_place from being saved:</h2>
+
+      <ul>
+      <% notable_place.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rule %>
+    <%= form.text_area :rule %>
+  </div>
+
+  <div class="field">
+    <%= form.label :wealth %>
+    <%= form.number_field :wealth %>
+  </div>
+
+  <div class="field">
+    <%= form.label :crime %>
+    <%= form.number_field :crime %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tech %>
+    <%= form.number_field :tech %>
+  </div>
+
+  <div class="field">
+    <%= form.label :weird %>
+    <%= form.number_field :weird %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

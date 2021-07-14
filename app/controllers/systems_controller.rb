@@ -37,6 +37,13 @@ class SystemsController < ApplicationController
 
   # PATCH/PUT /systems/1 or /systems/1.json
   def update
+    heat_level = system_params[:heat].to_i
+
+    if heat_level >= 8
+      new_heat = heat_level - 8
+      @system.wanted_level += 1
+      params[:system][:heat] = new_heat.to_s
+    end
     respond_to do |format|
       if @system.update(system_params)
         format.html { redirect_to campaign_systems_path(@campaign), notice: "System was successfully updated." }
@@ -68,6 +75,6 @@ class SystemsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def system_params
-      params.require(:system).permit(:name, :campaign_id)
+      params.require(:system).permit(:name, :heat, :wanted_level, :campaign_id)
     end
 end

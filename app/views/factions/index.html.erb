@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Factions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Faction type</th>
+      <th>Tier</th>
+      <th>Goal</th>
+      <th>Description</th>
+      <th>Notable assets</th>
+      <th>Qirks</th>
+      <th>Situation</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @factions.each do |faction| %>
+      <tr>
+        <td><%= link_to faction.name, campaign_faction_path(@campaign, faction) %></td>
+        <td><%= faction.faction_type %></td>
+        <td><%= faction.tier %></td>
+        <td><%= faction.goal %></td>
+        <td><%= faction.description %></td>
+        <td><%= faction.notable_assets %></td>
+        <td><%= faction.qirks %></td>
+        <td><%= faction.situation %></td>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Faction', new_campaign_faction_path(@campaign) %><br><br>
+<%= link_to 'Back to Campaign', campaign_path(@campaign) %>

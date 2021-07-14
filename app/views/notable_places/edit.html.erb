@@ -1,0 +1,6 @@
+<h1>Editing Notable Place</h1>
+
+<%= render 'form', notable_place: @notable_place %>
+
+<%= link_to 'Show', [@campaign, @system, @notable_place] %> |
+<%= link_to 'Back', campaign_system_notable_places_path(@campaign, @system) %>

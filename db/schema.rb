@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_09_171013) do
+ActiveRecord::Schema.define(version: 2021_07_14_193057) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,21 @@ ActiveRecord::Schema.define(version: 2021_07_09_171013) do
     t.index ["user_id"], name: "index_campaigns_on_user_id"
   end
 
+  create_table "factions", force: :cascade do |t|
+    t.string "name"
+    t.string "faction_type"
+    t.integer "tier"
+    t.text "goal"
+    t.text "description"
+    t.text "notable_assets"
+    t.text "qirks"
+    t.text "situation"
+    t.bigint "campaign_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["campaign_id"], name: "index_factions_on_campaign_id"
+  end
+
   create_table "jobs", force: :cascade do |t|
     t.string "job_type"
     t.text "details"
@@ -31,6 +46,20 @@ ActiveRecord::Schema.define(version: 2021_07_09_171013) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["campaign_id"], name: "index_jobs_on_campaign_id"
+  end
+
+  create_table "notable_places", force: :cascade do |t|
+    t.bigint "system_id"
+    t.string "name"
+    t.text "description"
+    t.text "rule"
+    t.integer "wealth"
+    t.integer "crime"
+    t.integer "tech"
+    t.integer "weird"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["system_id"], name: "index_notable_places_on_system_id"
   end
 
   create_table "npcs", force: :cascade do |t|
@@ -62,6 +91,8 @@ ActiveRecord::Schema.define(version: 2021_07_09_171013) do
     t.bigint "campaign_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "heat", default: 0
+    t.integer "wanted_level", default: 0
     t.index ["campaign_id"], name: "index_systems_on_campaign_id"
   end
 
@@ -78,7 +109,9 @@ ActiveRecord::Schema.define(version: 2021_07_09_171013) do
   end
 
   add_foreign_key "campaigns", "users"
+  add_foreign_key "factions", "campaigns"
   add_foreign_key "jobs", "campaigns"
+  add_foreign_key "notable_places", "systems"
   add_foreign_key "npcs", "campaigns"
   add_foreign_key "pcs", "campaigns"
   add_foreign_key "systems", "campaigns"

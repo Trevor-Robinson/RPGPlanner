@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>System:</strong>
+  <%= @notable_place.system.name %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @notable_place.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @notable_place.description %>
+</p>
+
+<p>
+  <strong>Rule:</strong>
+  <%= @notable_place.rule %>
+</p>
+
+<p>
+  <strong>Wealth:</strong>
+  <%= @notable_place.wealth %>
+</p>
+
+<p>
+  <strong>Crime:</strong>
+  <%= @notable_place.crime %>
+</p>
+
+<p>
+  <strong>Tech:</strong>
+  <%= @notable_place.tech %>
+</p>
+
+<p>
+  <strong>Weird:</strong>
+  <%= @notable_place.weird %>
+</p>
+
+<%= link_to 'Edit', edit_campaign_system_notable_place_path(@notable_place) %> | <%= link_to 'Destroy', [@campaign, @system, @notable_place] , method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to 'Back', campaign_system_notable_places_path(@campaign, @system) %>
