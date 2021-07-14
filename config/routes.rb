@@ -4,7 +4,10 @@ Rails.application.routes.draw do
     resources :npcs
     resources :pcs
     resources :jobs
-    resources :systems
+    resources :systems do
+      resources :notable_places
+    end
+    resources :factions
   end
   devise_for :users
   get 'home/index'

@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Notable Places</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Rule</th>
+      <th>Wealth</th>
+      <th>Crime</th>
+      <th>Tech</th>
+      <th>Weird</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @notable_places.each do |notable_place| %>
+      <tr>
+        <td><%= link_to notable_place.name, campaign_system_notable_place_path(@campaign, @system, notable_place)  %></td>
+        <td><%= notable_place.description %></td>
+        <td><%= notable_place.rule %></td>
+        <td><%= notable_place.wealth %></td>
+        <td><%= notable_place.crime %></td>
+        <td><%= notable_place.tech %></td>
+        <td><%= notable_place.weird %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Notable Place', new_campaign_system_notable_place_path(@campaign, @system) %><br><br>
+<%= link_to 'Back to System', campaign_system_path(@campaign, @system) %>

@@ -6,13 +6,21 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Heat</th>
+      <th>Wanted Level</th>
+      <th>Notable Places</th>
     </tr>
   </thead>
 
   <tbody>
     <% @systems.each do |system| %>
       <tr>
-        <td><%= system.name %></td>
+        <td><%= link_to system.name, campaign_system_path(@campaign, system) %></td>
+        <td><%= system.heat %></td>
+        <td><%= system.wanted_level %></td>
+        <% system.notable_places.each do |notable_place| %>
+          <td><%= link_to notable_place.name, campaign_system_notable_place_path(@campaign, system, notable_place)  %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

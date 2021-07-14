@@ -1,0 +1,2 @@
+module NotablePlacesHelper
+end

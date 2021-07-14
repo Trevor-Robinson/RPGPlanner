@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @faction.name %>
+</p>
+
+<p>
+  <strong>Faction type:</strong>
+  <%= @faction.faction_type %>
+</p>
+
+<p>
+  <strong>Tier:</strong>
+  <%= @faction.tier %>
+</p>
+
+<p>
+  <strong>Goal:</strong>
+  <%= @faction.goal %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @faction.description %>
+</p>
+
+<p>
+  <strong>Notable assets:</strong>
+  <%= @faction.notable_assets %>
+</p>
+
+<p>
+  <strong>Qirks:</strong>
+  <%= @faction.qirks %>
+</p>
+
+<p>
+  <strong>Situation:</strong>
+  <%= @faction.situation %>
+</p>
+
+<%= link_to 'Edit', edit_campaign_faction_path(@campaign, @faction) %> |
+<%= link_to 'Destroy', [@campaign, @faction] , method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to 'Back', campaign_factions_path(@campaign)%>
