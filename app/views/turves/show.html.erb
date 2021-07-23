@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>System:</strong>
+  <%= @turf.system.name %>
+</p>
+
+<p>
+  <strong>Faction:</strong>
+  <%= @turf.faction.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @turf.description %>
+</p>
+
+<%= link_to 'Edit', edit_campaign_faction_turf_path(@campaign, @faction, @turf) %> |
+<%= link_to 'Back', campaign_faction_turves_path %>

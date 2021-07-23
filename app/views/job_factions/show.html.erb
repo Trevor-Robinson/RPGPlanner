@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Job:</strong>
+  <%= @job_faction.job %>
+</p>
+
+<p>
+  <strong>Faction:</strong>
+  <%= @job_faction.faction.name %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @job_faction.note %>
+</p>
+
+<td><%= link_to 'Edit', edit_job_faction_path(job_faction) %></td>
+<td><%= link_to 'Destroy', job_faction, method: :delete, data: { confirm: 'Are you sure?' } %></td> |
+<%= link_to 'Edit', edit_campaign_job_job_faction_path(@job_faction) %> |
+<%= link_to 'Back', job_factions_path %>

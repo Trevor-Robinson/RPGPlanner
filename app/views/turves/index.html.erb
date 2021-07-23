@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Turf</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>System</th>
+      <th>Faction</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @turves.each do |turf| %>
+      <tr>
+        <td><%= turf.system.name %></td>
+        <td><%= turf.faction.name %></td>
+        <td><%= turf.description %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Turf', new_campaign_faction_turf_path(@campaign, @faction) %>

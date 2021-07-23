@@ -40,6 +40,32 @@
   <%= @faction.situation %>
 </p>
 
+<h1>Turf</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>System</th>
+      <th>Faction</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @faction.turves.each do |turf| %>
+      <tr>
+        <td><%= turf.system.name,  %></td>
+        <td><%= turf.faction.name %></td>
+        <td><%= turf.description %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Turf', new_campaign_faction_turf_path(@campaign, @faction) %><br><br>
+
 <%= link_to 'Edit', edit_campaign_faction_path(@campaign, @faction) %> |
 <%= link_to 'Destroy', [@campaign, @faction] , method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Back', campaign_factions_path(@campaign)%>

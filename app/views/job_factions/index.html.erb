@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Job Factions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Job</th>
+      <th>Faction</th>
+      <th>Note</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @job_factions.each do |job_faction| %>
+      <tr>
+        <td><%= job_faction.job %></td>
+        <td><%= job_faction.faction.name %></td>
+        <td><%= job_faction.note %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Job Faction', new_campaign_job_job_faction_path(@campaign, @job) %>

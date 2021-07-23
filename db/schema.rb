@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_14_193057) do
+ActiveRecord::Schema.define(version: 2021_07_16_182725) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,16 @@ ActiveRecord::Schema.define(version: 2021_07_14_193057) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["campaign_id"], name: "index_factions_on_campaign_id"
+  end
+
+  create_table "job_factions", force: :cascade do |t|
+    t.bigint "job_id"
+    t.bigint "faction_id"
+    t.text "note"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["faction_id"], name: "index_job_factions_on_faction_id"
+    t.index ["job_id"], name: "index_job_factions_on_job_id"
   end
 
   create_table "jobs", force: :cascade do |t|
@@ -96,6 +106,16 @@ ActiveRecord::Schema.define(version: 2021_07_14_193057) do
     t.index ["campaign_id"], name: "index_systems_on_campaign_id"
   end
 
+  create_table "turves", force: :cascade do |t|
+    t.bigint "system_id"
+    t.bigint "faction_id"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["faction_id"], name: "index_turves_on_faction_id"
+    t.index ["system_id"], name: "index_turves_on_system_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -110,9 +130,13 @@ ActiveRecord::Schema.define(version: 2021_07_14_193057) do
 
   add_foreign_key "campaigns", "users"
   add_foreign_key "factions", "campaigns"
+  add_foreign_key "job_factions", "factions"
+  add_foreign_key "job_factions", "jobs"
   add_foreign_key "jobs", "campaigns"
   add_foreign_key "notable_places", "systems"
   add_foreign_key "npcs", "campaigns"
   add_foreign_key "pcs", "campaigns"
   add_foreign_key "systems", "campaigns"
+  add_foreign_key "turves", "factions"
+  add_foreign_key "turves", "systems"
 end
